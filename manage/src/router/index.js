@@ -97,6 +97,17 @@ export const constantRoutes = [
       meta: { title: '专题管理', icon: 'el-icon-files' }
     }]
   },
+  {
+    path: '/set',
+    component: Layout,
+    redirect: '/set',
+    children: [{
+      path: 'set',
+      name: '设置',
+      component: () => import('@/views/setting/index'),
+      meta: { title: '设置', icon: 'el-icon-setting' }
+    }]
+  },
   // {
   //   path: '/nested',
   //   component: Layout,

@@ -88,7 +88,6 @@ export default {
         this.page.current = this.data.currentPage
         this.page.total = this.data.count
         this.listLoading = false
-        console.log(r.data)
       })
     },
     search() {

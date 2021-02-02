@@ -53,7 +53,6 @@ module.exports = class extends Base {
       id: admin.id,
       username: admin.username,
       avatar: admin.avatar,
-      admin_role_id: admin.admin_role_id
     };
     return this.success({ ...userInfo });
   }

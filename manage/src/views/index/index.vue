@@ -113,7 +113,6 @@ export default {
     this.brand = (await brand()).data
     this.orderlist = (await orderlist({ page: 1, size: 5, typeid: 0 })).data
     this.loading = false
-    console.log(this.goods, this.category, this.brand, this.orderlist)
   },
   methods: {
     createTree(data) {

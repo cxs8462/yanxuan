@@ -350,7 +350,6 @@ export default {
   async created() {
     const fl = await category()
     const pp = await brand({ page: 1, size: 999 })
-    console.log(fl, pp)
     this.category = fl.data.filter(r => !!r.parent_id)
     this.brand = pp.data.data
   },
@@ -362,7 +361,6 @@ export default {
           this.$message.warning('轮播图至少两张！')
           return
         }
-        console.log(this.formData)
         addOrUpdate(this.formData).then(r => {
           if (!r.errno) {
             if (this.query.id) {
