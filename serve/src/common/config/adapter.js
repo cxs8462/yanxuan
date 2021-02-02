@@ -50,7 +50,7 @@ exports.logger = {
     backups: 10, // max chunk number
     absolute: true,
     maxLogSize: 50 * 1024, // 50M
-    filename: path.join(think.ROOT_PATH, 'logs/app.log')
+    filename: path.join(think.ROOT_PATH, 'logs/client.log')
   },
   dateFile: {
     handle: DateFile,
@@ -58,6 +58,6 @@ exports.logger = {
     absolute: true,
     pattern: '-yyyy-MM-dd',
     alwaysIncludePattern: true,
-    filename: path.join(think.ROOT_PATH, 'logs/app.log')
+    filename: path.join(think.ROOT_PATH, 'logs/client.log')
   }
 };
