@@ -103,7 +103,7 @@ class Mine extends Component{
         <div className="userPower">
           {
             this.state.userPower.map((item) => (
-              <div key={item.name} onClick={this.showPower.bind(this,item)} style={'link' in item?{color:'#2196f3'}:{}}>
+              <div key={item.name} onClick={this.showPower.bind(this,item)} style={'link' in item?{color:'#2196f3'}:{display:'none'}}>
                 <i className={`iconfont ${item.icon}`} style={'link' in item?{color:'#2196f3'}:{}}></i>
                 <div>{item.name}</div>
               </div>)
