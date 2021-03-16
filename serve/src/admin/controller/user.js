@@ -23,7 +23,7 @@ module.exports = class extends Base {
 
     return this.success(data);
   }
-
+  
   async storeAction() {
     if (!this.isPost) {
       return false;

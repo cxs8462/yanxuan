@@ -49,14 +49,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\app.log"
+        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\client.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\app.log"
+        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\client.log"
       }
     }
   },
@@ -126,14 +126,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\app.log"
+        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\client.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\app.log"
+        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\client.log"
       }
     }
   },
@@ -187,14 +187,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\app.log"
+        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\client.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\app.log"
+        "filename": "C:\\Users\\陈大神\\Desktop\\vue项目\\shop3\\serve\\logs\\client.log"
       }
     }
   }

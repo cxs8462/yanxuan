@@ -190,9 +190,14 @@ class App extends Component {
       <Fragment>
         <Carousel autoplay infinite>
           {banner.map((item) => (
-            <div className="bannerImg" key={item.id}>
-              <ImgLazyLoad offSetTop={0} realUrl={item.image_url}></ImgLazyLoad>
-            </div>
+            <Link to={item.link} key={item.id}>
+              <div className="bannerImg">
+                <ImgLazyLoad
+                  offSetTop={0}
+                  realUrl={item.image_url}
+                ></ImgLazyLoad>
+              </div>
+            </Link>
           ))}
         </Carousel>
         <Channel channel={channel}></Channel>
