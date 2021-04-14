@@ -29,4 +29,13 @@ export default class HttpUtil {
       })
     })
   }
+ static uppic(url,data){
+      return new Promise((resolve, reject) => {
+          instance.post(url, data,{headers: {...getNewHeaders(),"Content-Type": "multipart/form-data"}}).then(({ data }) => {
+              resolve(data)
+          }).catch((err) => {
+              reject({ err: JSON.stringify(err) })
+          })
+      })
+  }
 }

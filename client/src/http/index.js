@@ -246,5 +246,7 @@ class Https {
     postUserInfo = (params={})=>HttpUtils.post('/user/setUserInfo',params)
     //收货
     postOrderSh = (params={})=>HttpUtils.post('/orderlist/postOrderSh',params)
+    //pic
+    postPic = (data={})=>HttpUtils.uppic('/upload/uppic',data)
 }
 export default new Https()

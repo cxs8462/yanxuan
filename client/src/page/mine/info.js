@@ -27,6 +27,28 @@ function Info(){
             Toast.success('保存失败，请检查！');
         }
     }
+    const upPic =()=>{
+        const input = document.createElement('input');
+        input.type = "file";
+        input.accept = "image/jpeg";
+        input.style.display = "none";
+        input.onchange = async e => {
+            const formdata = new FormData()
+            const file = e.target.files[0]
+            if (file.type === 'image/jpeg') {
+                formdata.append('file', file);
+                const data = await http.postPic(formdata);
+                const fileUrl = data.data.fileUrl;
+                setInfo({...info,avatar:fileUrl})
+            } else {
+                Toast.info('图片格式错误，应为JPG！');
+            }
+
+        }
+
+        input.click();
+
+    }
     useEffect(()=>{
         getInfo()
     },[])
@@ -36,7 +58,7 @@ function Info(){
             <Header clickLeft={()=>history.goBack()} title="我的信息"/>
             <List>
                 <Item
-                    extra={<div style={{width:'100px',height:'100px',borderRadius:'50%',overflow:'hidden'}}><img style={{width:'100px',height:'100px'}} src={info.avatar} alt=''/></div>}
+                    extra={<div style={{width:'100px',height:'100px',borderRadius:'50%',overflow:'hidden'}}><img style={{width:'100px',height:'100px'}} onClick={upPic} src={info.avatar} alt=''/></div>}
                 >头像</Item>
                 <InputItem style={{textAlign:'right'}} value={info.username} onInput={e=>setInfo({...info,username:e.target.value})} clear moneyKeyboardAlign={'right'}>用户名</InputItem>
                 <InputItem style={{textAlign:'right'}} value={info.mobile} onInput={e=>setInfo({...info,mobile:e.target.value})} clear moneyKeyboardAlign={'right'}>手机号码</InputItem>
