@@ -1,126 +1,127 @@
-import AsyncComponent from '../components/AsyncComponent'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Layout from "@/layout/index";
+import store from "@/store/index";
+Vue.use(VueRouter);
 
-const Home = AsyncComponent(() => import('../page/home'))
-const Topic = AsyncComponent(() => import('../page/topic'))
-const Catelog = AsyncComponent(() => import('../page/catelog'))
-const Cart = AsyncComponent(() => import('../page/cart'))
-const Mine = AsyncComponent(() => import('../page/mine'))
-const Categorys = AsyncComponent(() => import('../page/categorys'))
-const Goods = AsyncComponent(() => import('../page/goods'))
-const BrandDetail = AsyncComponent(() => import('../page/brandDetail'))
-const TopicDetail = AsyncComponent(() => import('../page/topicDetail'))
-const Comment = AsyncComponent(() => import('../page/comment'))
-const TopicCommentWrite = AsyncComponent(() =>
-    import('../page/topicCommentWrite')
-)
-const GoodsSearch = AsyncComponent(() => import('../page/goodsSearch'))
-const Collect = AsyncComponent(() => import('../page/collect'))
-const Address = AsyncComponent(() => import('../page/address'))
-const OrderConfirm = AsyncComponent(() => import('../page/orderConfirm'))
-const MyOrder = AsyncComponent(() => import('../page/myorder/index'))
-const Info = AsyncComponent(()=>import('../page/mine/info'))
 const routes = [
-    {
-        name: '首页',
-        isTab: true,
-        link: '/home',
-        component: Home
-    },
-    {
-        name: '专题',
-        link: '/topic',
-        isTab: true,
-        component: Topic
-    },
-    {
-        name: '分类',
-        link: '/catelog',
-        isTab: true,
-        component: Catelog
-    },
-    {
-        name: '购物车',
-        link: '/cart',
-        isTab: true,
-        component: Cart
-    },
-    {
-        name: '我的',
-        link: '/mine',
-        isTab: true,
-        component: Mine
-    },
-    {
-        name: '分类商品',
-        link: '/categorys/:id',
-        isTab: false,
-        component: Categorys
-    },
-    {
-        name: '商品详情',
-        link: '/goods/:id',
-        isTab: false,
-        component: Goods
-    },
-    {
-        name: '制造商详情',
-        link: '/brandDetail/:id',
-        isTab: false,
-        component: BrandDetail
-    },
-    {
-        name: '专题详情',
-        link: '/topicDetail/:id',
-        isTab: false,
-        component: TopicDetail
-    },
-    {
-        name: '评论页',
-        link: '/comment/:id',
-        isTab: false,
-        component: Comment
-    },
-    {
-        name: '写专题评论',
-        link: '/topicCommentWrite/:id',
-        isTab: false,
-        component: TopicCommentWrite
-    },
-    {
-        name: '商品查询',
-        link: '/goodsSearch',
-        isTab: false,
-        component: GoodsSearch
-    },
-    {
-        name: '收藏商品',
-        link: '/collect',
-        isTab: false,
-        component: Collect
-    },
-    {
-        name: '地址管理',
-        link: '/address',
-        isTab: false,
-        component: Address
-    },
-    {
-        name: '订单确认',
-        link: '/orderConfirm',
-        isTab: false,
-        component: OrderConfirm
-    },
-    {
-        name: '我的订单',
-        link: '/myorder',
-        isTab: false,
-        component: MyOrder
-    },
-    {
-        name:'我的信息',
-        link:'/info',
-        isTab: false,
-        component: Info
+  {
+    path: "/",
+    component: Layout,
+    redirect: "/home",
+    children: [
+      {
+        path: "home",
+        name: "首页",
+        component: () => import("@/views/home/index"),
+        meta: { needLogin: false, isKeep: true },
+      },
+      {
+        path: "category",
+        name: "分类",
+        component: () => import("@/views/category/index"),
+        meta: { needLogin: false, isKeep: false },
+      },
+      {
+        path: "brand",
+        name: "品牌",
+        component: () => import("@/views/brand/index"),
+        meta: { needLogin: false, isKeep: true },
+      },
+      {
+        path: "topic",
+        name: "专题",
+        component: () => import("@/views/topic/index"),
+        meta: { needLogin: false, isKeep: true },
+      },
+      {
+        path: "my",
+        name: "我的",
+        component: () => import("@/views/my/index"),
+        meta: { needLogin: true, isKeep: false },
+      },
+    ],
+  },
+  {
+    path: "cart",
+    name: "购物车",
+    component: () => import("@/views/cart/index"),
+    meta: { needLogin: true, isKeep: false },
+  },
+  {
+    path: "/topicdetail",
+    name: "专题详情",
+    component: () => import("@/views/topic/detail"),
+    meta: { needLogin: true },
+  },
+  {
+    path: "/catedetail",
+    name: "分类详情",
+    component: () => import("@/views/category/detail"),
+    meta: { needLogin: false },
+  },
+  {
+    path: "/branddetail",
+    name: "品牌详情",
+    component: () => import("@/views/brand/detail"),
+    meta: { needLogin: false },
+  },
+  {
+    path: "/goodsdetail",
+    name: "商品详情",
+    component: () => import("@/views/goods/index"),
+    meta: { needLogin: false },
+  },
+  {
+    path: "/address",
+    name: "地址中心",
+    component: () => import("@/views/address/index"),
+    meta: { needLogin: true },
+  },
+  {
+    path: "/goodssc",
+    name: "我的收藏",
+    component: () => import("@/views/goods/gooodsSc"),
+    meta: { needLogin: true },
+  },
+  {
+    path: "/record",
+    name: "浏览记录",
+    component: () => import("@/views/goods/record"),
+    meta: { needLogin: true },
+  },
+  {
+    path: "/order",
+    name: "我的订单",
+    component: () => import("@/views/order/index"),
+    meta: { needLogin: true },
+  },
+  {
+    path: "/search",
+    name: "搜索",
+    component: () => import("@/views/search/index"),
+    meta: { needLogin: false },
+  },
+  { path: "*", redirect: "/" },
+];
+
+const router = new VueRouter({
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes,
+});
+
+router.beforeEach((to, from, next) => {
+  window.scrollTo(0,0);
+  if (to.meta.needLogin) {
+    if (!store.state.userInfo) {
+      store.commit("setLoginShow", true);
+    } else {
+      next();
     }
-]
-export default routes
+  } else {
+    next();
+  }
+});
+
+export default router;
