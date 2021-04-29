@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 5.7.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: shop3
 -- ------------------------------------------------------
--- Server version	5.7.26
+-- Server version	8.0.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+ SET NAMES utf8 ;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `nideshop_ad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_ad` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `ad_position_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -35,7 +35,7 @@ CREATE TABLE `nideshop_ad` (
   PRIMARY KEY (`id`),
   KEY `position_id` (`ad_position_id`),
   KEY `enabled` (`enabled`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,7 +54,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_ad_position`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_ad_position` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(60) NOT NULL DEFAULT '',
@@ -62,7 +62,7 @@ CREATE TABLE `nideshop_ad_position` (
   `height` smallint(5) unsigned NOT NULL DEFAULT '0',
   `desc` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,7 +81,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_address` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '',
@@ -95,7 +95,7 @@ CREATE TABLE `nideshop_address` (
   `is_default` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `nideshop_address` (
 
 LOCK TABLES `nideshop_address` WRITE;
 /*!40000 ALTER TABLE `nideshop_address` DISABLE KEYS */;
-INSERT INTO `nideshop_address` VALUES (3,'小明',1,1,20,233,2414,'民族大道1号','13800008888',1),(4,'cxs Chen',16,0,2,37,403,'79 room','15255555555',1),(5,'cccc',26,0,2,37,403,'79 room','15251111512',0),(6,'cxs Chen',27,0,2,37,403,'79 room','13888886668',1),(7,'GGJ',28,0,2,37,403,'203','13852231414',1);
+INSERT INTO `nideshop_address` VALUES (3,'小明',1,1,20,233,2414,'民族大道1号','13800008888',1),(4,'cxs Chen',16,0,2,37,403,'79 room','15255555555',1),(5,'cccc',26,0,2,37,403,'79 room','15251111512',0),(6,'cxs Chen',27,0,2,37,403,'79 room','13888886668',1),(7,'GGJ',28,0,2,37,403,'203','13852231414',1),(8,'陈大神',30,0,3030,0,0,'天津玉溪市安宁市15街道 2001室','15251131234',1);
 /*!40000 ALTER TABLE `nideshop_address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(10) NOT NULL DEFAULT '''''',
@@ -127,7 +127,7 @@ CREATE TABLE `nideshop_admin` (
   `avatar` varchar(255) NOT NULL DEFAULT '''''',
   `admin_role_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +146,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_attribute`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_attribute` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `attribute_category_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -156,7 +156,7 @@ CREATE TABLE `nideshop_attribute` (
   `sort_order` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cat_id` (`attribute_category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,13 +175,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_attribute_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_attribute_category` (
   `id` int(11) unsigned NOT NULL,
   `name` varchar(60) NOT NULL DEFAULT '',
   `enabled` tinyint(1) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +200,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_brand`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_brand` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
@@ -216,7 +216,7 @@ CREATE TABLE `nideshop_brand` (
   `new_sort_order` tinyint(2) unsigned NOT NULL DEFAULT '10',
   PRIMARY KEY (`id`),
   KEY `is_show` (`is_show`)
-) ENGINE=InnoDB AUTO_INCREMENT=1046001 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1046001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +235,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_cart` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '购物车',
   `user_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -253,7 +253,7 @@ CREATE TABLE `nideshop_cart` (
   `list_pic_url` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `session_id` (`session_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -272,7 +272,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_category` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(90) NOT NULL DEFAULT '',
@@ -291,7 +291,7 @@ CREATE TABLE `nideshop_category` (
   `front_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1036004 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1036004 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,7 +310,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_channel`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_channel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL DEFAULT '',
@@ -318,7 +318,7 @@ CREATE TABLE `nideshop_channel` (
   `icon_url` varchar(255) NOT NULL DEFAULT '',
   `sort_order` int(4) unsigned NOT NULL DEFAULT '10',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1019001 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1019001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -337,7 +337,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_collect`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_collect` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -349,7 +349,7 @@ CREATE TABLE `nideshop_collect` (
   KEY `user_id` (`user_id`),
   KEY `goods_id` (`value_id`),
   KEY `is_attention` (`is_attention`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,16 +368,16 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_comment` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `type_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `value_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `content` varchar(6550) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '储存为base64编码',
+  `content` varchar(6550) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '储存为base64编码',
   `add_time` bigint(12) unsigned NOT NULL DEFAULT '0',
   `status` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `user_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `new_content` varchar(6550) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `new_content` varchar(6550) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `id_value` (`value_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1010 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -399,14 +399,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_comment_picture`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_comment_picture` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `comment_id` int(11) unsigned NOT NULL DEFAULT '0',
   `pic_url` varchar(255) NOT NULL DEFAULT '',
   `sort_order` tinyint(1) unsigned NOT NULL DEFAULT '5',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1121 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1121 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -425,7 +425,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_coupon`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_coupon` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(60) NOT NULL DEFAULT '',
@@ -439,7 +439,7 @@ CREATE TABLE `nideshop_coupon` (
   `use_end_date` int(11) NOT NULL DEFAULT '0',
   `min_goods_amount` decimal(10,2) unsigned NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -458,7 +458,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_feedback`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_feedback` (
   `msg_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -475,7 +475,7 @@ CREATE TABLE `nideshop_feedback` (
   `msg_area` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`msg_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -494,14 +494,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_footprint`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_footprint` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
   `goods_id` int(11) NOT NULL DEFAULT '0',
   `add_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=275 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=295 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -510,7 +510,7 @@ CREATE TABLE `nideshop_footprint` (
 
 LOCK TABLES `nideshop_footprint` WRITE;
 /*!40000 ALTER TABLE `nideshop_footprint` DISABLE KEYS */;
-INSERT INTO `nideshop_footprint` VALUES (93,15,1156006,1550650602),(94,15,1156006,1550650607),(95,15,1181000,1550652207),(96,15,1051002,1550652275),(97,15,1181000,1550652731),(98,15,1143019,1550652807),(99,15,1045000,1550652814),(100,16,1147048,1550655380),(101,16,1147048,1550655450),(102,16,1181000,1550655957),(103,15,1147048,1550656192),(104,16,1181000,1550656802),(105,16,1181000,1550656944),(106,16,1135051,1550657248),(107,16,1010000,1550657420),(108,16,1022001,1550657434),(109,16,1181000,1550710036),(110,16,1166008,1550710568),(111,16,1181000,1550711335),(112,16,1181000,1550711418),(113,16,1181000,1550712870),(114,16,1181000,1550712877),(115,16,1138000,1550712923),(116,16,1138000,1550712975),(117,16,1127052,1550713070),(118,16,1138000,1550713123),(119,16,1138000,1550713166),(120,16,1181000,1550713288),(121,16,1181000,1550719704),(122,16,1181000,1550719853),(123,16,1181000,1550720728),(124,16,1181000,1550720746),(125,16,1181000,1550729017),(126,16,1011004,1550738552),(127,16,1116011,1611195243),(128,16,1134032,1611195258),(129,16,1051000,1611195291),(130,16,1038004,1611195299),(131,16,1051000,1611195301),(132,16,1134032,1611195304),(133,16,1147048,1611195329),(134,16,1181000,1611195352),(135,16,1135051,1611196984),(136,16,1155000,1611198923),(137,16,1155000,1611209281),(138,16,1155000,1611209333),(139,15,1116011,1611209597),(140,15,1116011,1611209608),(141,16,1116011,1611211065),(142,16,1045000,1611211073),(143,16,1116011,1611211076),(144,16,1134032,1611211078),(145,16,1134032,1611211131),(146,16,1116011,1611212678),(147,16,1006010,1611282878),(148,16,1006010,1611282885),(149,16,1166008,1611282907),(150,16,1006010,1611284461),(151,16,1006010,1611285412),(152,16,1006010,1611287609),(153,16,1155000,1611290080),(154,16,1155000,1611290082),(155,16,1116011,1611304494),(156,16,1134032,1611304518),(157,16,1134030,1611304534),(158,16,1134030,1611304836),(159,16,1127047,1611304869),(160,16,1009012,1611538455),(161,16,1134032,1611541881),(162,16,1009012,1611542005),(163,16,1009012,1611542008),(164,16,1116011,1611542114),(165,16,1116011,1611542119),(166,16,1116011,1611542126),(167,16,1116011,1611542129),(168,16,1134032,1611542141),(169,16,1134032,1611542214),(170,16,1116011,1611542383),(171,16,1134030,1611542392),(172,16,1134032,1611542723),(173,16,1134032,1611542760),(174,16,1134032,1611542813),(175,16,1116011,1611542867),(176,16,1134032,1611542876),(177,16,1009012,1611542881),(178,16,1134030,1611543946),(179,16,1009012,1611545631),(180,16,1134030,1611545682),(181,16,1030003,1611545853),(182,16,1011004,1611545976),(183,16,1051003,1611546008),(184,16,1011004,1611546144),(185,16,1156006,1611554496),(186,26,1127047,1611563136),(187,26,1134030,1611563556),(188,26,1030002,1611563706),(189,26,1009012,1611563794),(190,26,1134032,1611624085),(191,26,1006013,1611628860),(192,26,1011004,1611628882),(193,26,1051003,1611628889),(194,26,1011004,1611628908),(195,26,1156006,1611629705),(196,26,1006051,1611629712),(197,26,1011004,1611629718),(198,26,1147048,1611630146),(199,26,1156006,1611630532),(200,26,1030002,1611630565),(201,27,1134030,1611630713),(202,27,1092005,1611630753),(203,27,1181000,1611630767),(204,28,1006013,1611933470),(205,28,1116011,1611933557),(206,28,1020000,1611933562),(207,28,1006013,1611933611),(208,26,1166009,1612144409),(209,26,1130037,1612144423),(210,26,1166009,1612144431),(211,26,1166009,1612144490),(212,26,1166009,1612144497),(213,26,1166009,1612144539),(214,26,1166009,1612144549),(215,26,1166009,1612144577),(216,26,1166009,1612144602),(217,26,1166009,1612144697),(218,26,1166009,1612144862),(219,26,1166009,1612144866),(220,26,1130037,1612144869),(221,26,1166009,1612146176),(222,26,1166009,1612146251),(223,26,1166009,1612146286),(224,26,1166009,1612146503),(225,26,1166009,1612146605),(226,26,1166009,1612146618),(227,26,1166012,1612147527),(228,26,1166012,1612147675),(229,26,1166012,1612147753),(230,26,1166012,1612148864),(231,26,1166012,1612148921),(232,26,1130037,1612148936),(233,26,1110007,1612148960),(234,26,1166008,1612148967),(235,26,1166012,1612148976),(236,26,1166012,1612149273),(237,26,1166012,1612149295),(238,26,1134032,1612149304),(239,26,1134032,1612149631),(240,26,1166013,1612160793),(241,26,1166013,1612160802),(242,26,1166014,1612161243),(243,26,1166014,1612161249),(244,26,1166014,1612161260),(245,26,1166012,1612161600),(246,26,1166012,1612161772),(247,26,1166012,1612161781),(248,26,1009013,1612161789),(249,26,1166012,1612161792),(250,26,1166012,1612161797),(251,26,1166015,1612161974),(252,26,1166015,1612161982),(253,26,1166015,1612162003),(254,26,1166015,1612162017),(255,26,1166015,1612162041),(256,26,1166015,1612162055),(257,26,1166015,1612162611),(258,26,1166015,1612162707),(259,26,1166015,1612162723),(260,26,1166015,1612162754),(261,26,1130037,1612162779),(262,26,1011004,1612166453),(263,26,1011004,1612167763),(264,26,1166015,1612167767),(265,26,1166015,1612167770),(266,26,1166015,1612167833),(267,26,1134032,1612168004),(268,26,1011004,1612169720),(269,26,1166015,1612231366),(270,26,1090004,1612231374),(271,26,1166015,1612231381),(272,26,1166015,1612231386),(273,26,1006013,1612231405),(274,26,1166015,1612231673);
+INSERT INTO `nideshop_footprint` VALUES (93,15,1156006,1550650602),(94,15,1156006,1550650607),(95,15,1181000,1550652207),(96,15,1051002,1550652275),(97,15,1181000,1550652731),(98,15,1143019,1550652807),(99,15,1045000,1550652814),(100,16,1147048,1550655380),(101,16,1147048,1550655450),(102,16,1181000,1550655957),(103,15,1147048,1550656192),(104,16,1181000,1550656802),(105,16,1181000,1550656944),(106,16,1135051,1550657248),(107,16,1010000,1550657420),(108,16,1022001,1550657434),(109,16,1181000,1550710036),(110,16,1166008,1550710568),(111,16,1181000,1550711335),(112,16,1181000,1550711418),(113,16,1181000,1550712870),(114,16,1181000,1550712877),(115,16,1138000,1550712923),(116,16,1138000,1550712975),(117,16,1127052,1550713070),(118,16,1138000,1550713123),(119,16,1138000,1550713166),(120,16,1181000,1550713288),(121,16,1181000,1550719704),(122,16,1181000,1550719853),(123,16,1181000,1550720728),(124,16,1181000,1550720746),(125,16,1181000,1550729017),(126,16,1011004,1550738552),(127,16,1116011,1611195243),(128,16,1134032,1611195258),(129,16,1051000,1611195291),(130,16,1038004,1611195299),(131,16,1051000,1611195301),(132,16,1134032,1611195304),(133,16,1147048,1611195329),(134,16,1181000,1611195352),(135,16,1135051,1611196984),(136,16,1155000,1611198923),(137,16,1155000,1611209281),(138,16,1155000,1611209333),(139,15,1116011,1611209597),(140,15,1116011,1611209608),(141,16,1116011,1611211065),(142,16,1045000,1611211073),(143,16,1116011,1611211076),(144,16,1134032,1611211078),(145,16,1134032,1611211131),(146,16,1116011,1611212678),(147,16,1006010,1611282878),(148,16,1006010,1611282885),(149,16,1166008,1611282907),(150,16,1006010,1611284461),(151,16,1006010,1611285412),(152,16,1006010,1611287609),(153,16,1155000,1611290080),(154,16,1155000,1611290082),(155,16,1116011,1611304494),(156,16,1134032,1611304518),(157,16,1134030,1611304534),(158,16,1134030,1611304836),(159,16,1127047,1611304869),(160,16,1009012,1611538455),(161,16,1134032,1611541881),(162,16,1009012,1611542005),(163,16,1009012,1611542008),(164,16,1116011,1611542114),(165,16,1116011,1611542119),(166,16,1116011,1611542126),(167,16,1116011,1611542129),(168,16,1134032,1611542141),(169,16,1134032,1611542214),(170,16,1116011,1611542383),(171,16,1134030,1611542392),(172,16,1134032,1611542723),(173,16,1134032,1611542760),(174,16,1134032,1611542813),(175,16,1116011,1611542867),(176,16,1134032,1611542876),(177,16,1009012,1611542881),(178,16,1134030,1611543946),(179,16,1009012,1611545631),(180,16,1134030,1611545682),(181,16,1030003,1611545853),(182,16,1011004,1611545976),(183,16,1051003,1611546008),(184,16,1011004,1611546144),(185,16,1156006,1611554496),(186,26,1127047,1611563136),(187,26,1134030,1611563556),(188,26,1030002,1611563706),(189,26,1009012,1611563794),(190,26,1134032,1611624085),(191,26,1006013,1611628860),(192,26,1011004,1611628882),(193,26,1051003,1611628889),(194,26,1011004,1611628908),(195,26,1156006,1611629705),(196,26,1006051,1611629712),(197,26,1011004,1611629718),(198,26,1147048,1611630146),(199,26,1156006,1611630532),(200,26,1030002,1611630565),(201,27,1134030,1611630713),(202,27,1092005,1611630753),(203,27,1181000,1611630767),(204,28,1006013,1611933470),(205,28,1116011,1611933557),(206,28,1020000,1611933562),(207,28,1006013,1611933611),(208,26,1166009,1612144409),(209,26,1130037,1612144423),(210,26,1166009,1612144431),(211,26,1166009,1612144490),(212,26,1166009,1612144497),(213,26,1166009,1612144539),(214,26,1166009,1612144549),(215,26,1166009,1612144577),(216,26,1166009,1612144602),(217,26,1166009,1612144697),(218,26,1166009,1612144862),(219,26,1166009,1612144866),(220,26,1130037,1612144869),(221,26,1166009,1612146176),(222,26,1166009,1612146251),(223,26,1166009,1612146286),(224,26,1166009,1612146503),(225,26,1166009,1612146605),(226,26,1166009,1612146618),(227,26,1166012,1612147527),(228,26,1166012,1612147675),(229,26,1166012,1612147753),(230,26,1166012,1612148864),(231,26,1166012,1612148921),(232,26,1130037,1612148936),(233,26,1110007,1612148960),(234,26,1166008,1612148967),(235,26,1166012,1612148976),(236,26,1166012,1612149273),(237,26,1166012,1612149295),(238,26,1134032,1612149304),(239,26,1134032,1612149631),(240,26,1166013,1612160793),(241,26,1166013,1612160802),(242,26,1166014,1612161243),(243,26,1166014,1612161249),(244,26,1166014,1612161260),(245,26,1166012,1612161600),(246,26,1166012,1612161772),(247,26,1166012,1612161781),(248,26,1009013,1612161789),(249,26,1166012,1612161792),(250,26,1166012,1612161797),(251,26,1166015,1612161974),(252,26,1166015,1612161982),(253,26,1166015,1612162003),(254,26,1166015,1612162017),(255,26,1166015,1612162041),(256,26,1166015,1612162055),(257,26,1166015,1612162611),(258,26,1166015,1612162707),(259,26,1166015,1612162723),(260,26,1166015,1612162754),(261,26,1130037,1612162779),(262,26,1011004,1612166453),(263,26,1011004,1612167763),(264,26,1166015,1612167767),(265,26,1166015,1612167770),(266,26,1166015,1612167833),(267,26,1134032,1612168004),(268,26,1011004,1612169720),(269,26,1166015,1612231366),(270,26,1090004,1612231374),(271,26,1166015,1612231381),(272,26,1166015,1612231386),(273,26,1006013,1612231405),(274,26,1166015,1612231673),(275,30,1020000,1619682563),(276,30,1152161,1619682569),(277,30,1147048,1619682573),(278,30,1147048,1619682646),(279,30,1064022,1619682664),(280,30,1020000,1619693696),(281,30,1151012,1619693717),(282,30,1015007,1619694028),(283,30,1051000,1619694036),(284,30,1035006,1619694042),(285,30,1030002,1619694086),(286,30,1051000,1619694119),(287,30,1030001,1619694202),(288,30,1015007,1619694279),(289,30,1030001,1619694454),(290,30,1015007,1619694469),(291,30,1020000,1619699598),(292,30,1036016,1619700598),(293,30,1156006,1619700621),(294,30,1156006,1619700632);
 /*!40000 ALTER TABLE `nideshop_footprint` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -520,7 +520,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_goods`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_goods` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `category_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -558,7 +558,7 @@ CREATE TABLE `nideshop_goods` (
   KEY `brand_id` (`brand_id`),
   KEY `goods_number` (`goods_number`),
   KEY `sort_order` (`sort_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=1166016 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1166016 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -578,7 +578,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_goods_attribute`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_goods_attribute` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `goods_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -587,7 +587,7 @@ CREATE TABLE `nideshop_goods_attribute` (
   PRIMARY KEY (`id`),
   KEY `goods_id` (`goods_id`),
   KEY `attr_id` (`attribute_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=872 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=872 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -606,7 +606,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_goods_gallery`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_goods_gallery` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `goods_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -615,7 +615,7 @@ CREATE TABLE `nideshop_goods_gallery` (
   `sort_order` int(11) unsigned NOT NULL DEFAULT '5',
   PRIMARY KEY (`id`),
   KEY `goods_id` (`goods_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=729 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=729 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -634,14 +634,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_goods_issue`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_goods_issue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `goods_id` text,
   `question` varchar(255) DEFAULT NULL,
   `answer` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -660,7 +660,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_goods_specification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_goods_specification` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `goods_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -670,7 +670,7 @@ CREATE TABLE `nideshop_goods_specification` (
   PRIMARY KEY (`id`),
   KEY `goods_id` (`goods_id`),
   KEY `specification_id` (`specification_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COMMENT='商品对应规格表值表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='商品对应规格表值表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -689,7 +689,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_keywords`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_keywords` (
   `keyword` varchar(90) NOT NULL DEFAULT '',
   `is_hot` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -700,7 +700,7 @@ CREATE TABLE `nideshop_keywords` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COMMENT='热闹关键词表';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='热闹关键词表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -719,7 +719,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_order` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `order_sn` varchar(20) NOT NULL DEFAULT '',
@@ -758,7 +758,7 @@ CREATE TABLE `nideshop_order` (
   KEY `shipping_status` (`shipping_status`),
   KEY `pay_status` (`pay_status`),
   KEY `pay_id` (`pay_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -776,7 +776,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_order_express`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_order_express` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -792,7 +792,7 @@ CREATE TABLE `nideshop_order_express` (
   `update_time` int(11) NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订单物流信息表，发货时生成';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单物流信息表，发货时生成';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -810,7 +810,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_order_goods`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_order_goods` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -828,7 +828,7 @@ CREATE TABLE `nideshop_order_goods` (
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`),
   KEY `goods_id` (`goods_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -846,7 +846,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_orderlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_orderlist` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `typeid` int(11) NOT NULL DEFAULT '1' COMMENT '1.等待发货 2.已发货 3.已收货',
@@ -857,8 +857,10 @@ CREATE TABLE `nideshop_orderlist` (
   `userid` int(11) DEFAULT '0',
   `addressid` int(11) NOT NULL DEFAULT '0',
   `number` int(11) NOT NULL DEFAULT '0',
+  `comment` varchar(255) DEFAULT NULL,
+  `wl` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -867,6 +869,7 @@ CREATE TABLE `nideshop_orderlist` (
 
 LOCK TABLES `nideshop_orderlist` WRITE;
 /*!40000 ALTER TABLE `nideshop_orderlist` DISABLE KEYS */;
+INSERT INTO `nideshop_orderlist` VALUES (37,1,'1020000',79,'2021-04-29 15:04:37','20210304155044723144',30,8,1,'',1),(38,3,'1152161',459,'2021-04-29 15:04:07','20210304155055935038',30,8,1,'good!',1),(39,2,'1147048',559,'2021-04-29 15:04:09','20210304155055524466',30,8,1,'',1),(40,1,'1020000',79,'2021-04-29 18:04:53','20210304185559267150',30,8,1,NULL,1),(41,1,'1151012',359,'2021-04-29 18:04:59','20210304185559924546',30,8,1,NULL,1),(42,1,'1036016',109,'2021-04-29 20:04:20','20210304205030654697',30,8,1,NULL,1),(43,1,'1156006',699,'2021-04-29 20:04:23','20210304205030977406',30,8,2,NULL,1);
 /*!40000 ALTER TABLE `nideshop_orderlist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -876,7 +879,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_product` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -885,7 +888,7 @@ CREATE TABLE `nideshop_product` (
   `goods_number` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `retail_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=250 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=250 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -904,7 +907,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_region`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_region` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -915,7 +918,7 @@ CREATE TABLE `nideshop_region` (
   KEY `parent_id` (`parent_id`),
   KEY `region_type` (`type`),
   KEY `agency_id` (`agency_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4044 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4044 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -934,13 +937,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_related_goods`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_related_goods` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `goods_id` int(11) unsigned NOT NULL DEFAULT '0',
   `related_goods_id` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -958,7 +961,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_search_history`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_search_history` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `keyword` char(50) NOT NULL,
@@ -966,7 +969,7 @@ CREATE TABLE `nideshop_search_history` (
   `add_time` int(11) NOT NULL DEFAULT '0' COMMENT '搜索时间',
   `user_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -985,7 +988,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_shipper`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_shipper` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL DEFAULT '' COMMENT '快递公司名称',
@@ -993,7 +996,7 @@ CREATE TABLE `nideshop_shipper` (
   `sort_order` int(11) NOT NULL DEFAULT '10' COMMENT '排序',
   PRIMARY KEY (`id`),
   UNIQUE KEY `nideshop_shipper_id_uindex` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COMMENT='快递公司';
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='快递公司';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1012,13 +1015,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_specification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_specification` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(60) NOT NULL DEFAULT '',
   `sort_order` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='规格表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='规格表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1037,7 +1040,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_topic`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_topic` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '''''',
@@ -1055,7 +1058,7 @@ CREATE TABLE `nideshop_topic` (
   `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `topic_id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=315 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=315 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1074,13 +1077,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_topic_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_topic_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '',
   `pic_url` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1099,7 +1102,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_user` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(60) NOT NULL DEFAULT '',
@@ -1114,7 +1117,7 @@ CREATE TABLE `nideshop_user` (
   `avatar` varchar(255) NOT NULL DEFAULT 'https://wx.qlogo.cn/mmopen/vi_32/mJsLrs6JP478mBL1nXQ4iaurfs1PMFnuzgckf71dk4viclSXhOujkiaPVW7KyuCk4SfnqbjPffL6S60pgMx9sEB8w/132',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1123,7 +1126,7 @@ CREATE TABLE `nideshop_user` (
 
 LOCK TABLES `nideshop_user` WRITE;
 /*!40000 ALTER TABLE `nideshop_user` DISABLE KEYS */;
-INSERT INTO `nideshop_user` VALUES (29,'cxs','cxs',0,'2020-01-01',0,1612253626,0,'default name','cxs','https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2715011138,741976729&fm=11&gp=0.jpg');
+INSERT INTO `nideshop_user` VALUES (30,'15251154123','123',0,'2020-01-01',0,1619690193,0,'cxs','15251154123',' http://127.0.0.1:8360/web/pic/default.jpg');
 /*!40000 ALTER TABLE `nideshop_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1133,7 +1136,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_user_coupon`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_user_coupon` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `coupon_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -1143,7 +1146,7 @@ CREATE TABLE `nideshop_user_coupon` (
   `order_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1162,13 +1165,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nideshop_user_level`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nideshop_user_level` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL DEFAULT '',
   `description` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1190,4 +1193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-02 16:14:29
+-- Dump completed on 2021-04-29 20:57:02

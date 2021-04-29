@@ -6,7 +6,7 @@ module.exports = class extends Base {
   async infoAction() {
     const userInfo = await this.model('user').where({id: this.getLoginUserId()}).find();
     delete userInfo.password;
-    return this.json(userInfo);
+    return this.success(userInfo);
   }
 
   /**

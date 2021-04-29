@@ -15,3 +15,11 @@ export function send(data = {}) {
     data
   })
 }
+
+export function postWl(data = {}) {
+  return request({
+    url: '/order/postWL',
+    method: 'post',
+    data
+  })
+}

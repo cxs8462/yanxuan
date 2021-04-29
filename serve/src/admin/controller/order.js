@@ -81,6 +81,13 @@ module.exports = class extends (
     return this.success();
   }
 
+  async postWLAction(){
+    const id = this.post("id");
+    const wl = this.post("wl")
+    await this.model('orderlist').where({id}).update({wl})
+    return this.success();
+  }
+
   async storeAction() {
     if (!this.isPost) {
       return false;

@@ -10,7 +10,7 @@ function Info(){
     const [info,setInfo] = useState({})
     const getInfo = async ()=>{
         const data = await http.getUserInfo()
-        setInfo({...data})
+        setInfo({...data.data})
     }
     const sex = [{label:'保密',value:0},{label:'男',value:1},{label:'女',value:2}]
     const setUserInfo = async ()=>{

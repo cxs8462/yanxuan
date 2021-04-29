@@ -30,7 +30,7 @@
         fit
         highlight-current-row
       >
-        <el-table-column align="center" label="订单编号" width="200">
+        <el-table-column align="center" label="订单编号" width="180">
           <template slot-scope="scope">
             {{ scope.row.bh }}
           </template>
@@ -40,7 +40,7 @@
             {{ scope.row.goods.name }}
           </template>
         </el-table-column>
-        <el-table-column label="单价" width="110" align="center">
+        <el-table-column label="单价" width="100" align="center">
           <template slot-scope="scope">
             <span>{{ scope.row.goods.retail_price }}</span>
           </template>
@@ -50,12 +50,12 @@
             {{ scope.row.number }}
           </template>
         </el-table-column>
-        <el-table-column label="付款价格" width="110" align="center">
+        <el-table-column label="付款价格" align="center">
           <template slot-scope="scope">
             {{ scope.row.price*scope.row.number }}
           </template>
         </el-table-column>
-        <el-table-column label="付款时间" width="190" align="center">
+        <el-table-column label="付款时间" width="160" align="center">
           <template slot-scope="scope">
             {{ scope.row.time }}
           </template>
@@ -67,7 +67,7 @@
         </el-table-column>
         <el-table-column label="地址" align="center">
           <template slot-scope="scope">
-            {{ scope.row.address.full_region + ' ' + scope.row.address.address }}
+            {{ scope.row.address.address }}
           </template>
         </el-table-column>
         <el-table-column label="收货人" align="center">
@@ -87,6 +87,16 @@
             <el-link v-if="scope.row.typeid===1" @click="()=>fh(scope.row.Id)"><i class="el-icon-goods" />发货</el-link>
           </template>
         </el-table-column>
+        <el-table-column label="物流" width="140" align="center">
+          <template slot-scope="scope">
+            <el-select :value="scope.row.wl" :disabled="scope.row.wl===3" @input="i=>changeWl(i,scope.row.Id)">
+              <el-option :value="0" label="未发货" />
+              <el-option :value="1" label="待揽收" />
+              <el-option :value="2" label="运输中" />
+              <el-option :value="3" disabled label="完成" />
+            </el-select>
+          </template>
+        </el-table-column>
       </el-table>
     </simble-card>
     <page-currt :size="page.size" :current.sync="page.current" :total="page.total" @getData="getData" />
@@ -94,7 +104,7 @@
 </template>
 
 <script>
-import { index, send } from '@/api/orderlist'
+import { index, send, postWl } from '@/api/orderlist'
 import SimbleCard from '@/components/SimbleCard'
 import PageCurrt from '@/components/pageCurrt'
 export default {
@@ -170,6 +180,15 @@ export default {
       send({ id }).then(r => {
         if (!r.errno) {
           this.$message.success('发货成功！')
+          this.getData()
+        }
+      })
+    },
+    changeWl(i, id) {
+      this.listLoading = true
+      postWl({ id, wl: i }).then(r => {
+        if (!r.errno) {
+          this.$message.success('更新物流状态成功！')
           this.getData()
         }
       })

@@ -15,3 +15,11 @@ export function state(data = {}) {
     data
   })
 }
+
+export function user(data = {}) {
+  return request({
+    url: '/user/index',
+    method: 'get',
+    data
+  })
+}

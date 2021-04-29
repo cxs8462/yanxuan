@@ -25,4 +25,11 @@ module.exports = class extends Base {
     await this.model('search_history').where({ user_id: this.getLoginUserId() }).delete();
     return this.success();
   }
+
+  async searchGoodsAction(){
+    const keyword = this.get('keyword');
+    const goods = this.model('goods');
+    const goodsData = await goods.where({ name: ["like", `%${keyword}%`] }).field(['id', 'name', 'list_pic_url', 'retail_price']).page(this.get('page')||1, this.get('size')||10).countSelect();
+    return this.success(goodsData);
+  }
 };

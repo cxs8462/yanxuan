@@ -90,13 +90,27 @@ module.exports = class extends Base {
       return this.success({msg:'手机号码重复',success:0})
     }
     const obj = {
-      ...data,
       nickname:'default name',
+      ...data,
       username:data.mobile,
-      avatar:'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2715011138,741976729&fm=11&gp=0.jpg'
+      avatar:' http://127.0.0.1:8360/web/pic/default.jpg'
     }
     await this.model('user').add(obj)
     return this.success({msg:'注册成功！',success:1})
   }
 
+  async createuserAction(){
+    const data =await this.post();
+    const isCf =await this.model('user').where({mobile:data.mobile}).select()
+    if(isCf.length){
+      return this.success({msg:'手机号码重复',success:0})
+    }
+    const obj = {
+      ...data,
+      username:data.mobile,
+      avatar:' http://127.0.0.1:8360/web/pic/default.jpg'
+    }
+    await this.model('user').add(obj)
+    return this.success({msg:'注册成功！',success:1})
+  }
 };

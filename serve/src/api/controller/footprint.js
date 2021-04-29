@@ -32,6 +32,7 @@ module.exports = class extends Base {
         on: ['f.goods_id', 'g.id']
       }).where({user_id: this.getLoginUserId()})
       .order({id: 'desc'})
+      .page(this.get('page') || 1, this.get('size') || 10)
       .countSelect();
 
     // 去重、格式化日期、按天分组

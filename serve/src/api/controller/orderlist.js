@@ -62,7 +62,17 @@ module.exports = class extends (
   
   async postOrderShAction(){
     const id = this.post("id");
-    await this.model('orderlist').where({id}).update({typeid:3})
+    await this.model('orderlist').where({id}).update({typeid:3,wl:3})
+    return this.success({
+      isSuccsee:true
+    });
+  }
+
+ 
+  async postCommentAction(){
+    const id = this.post("id");
+    const comment = this.post("comment")
+    await this.model('orderlist').where({id}).update({comment})
     return this.success({
       isSuccsee:true
     });

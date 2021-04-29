@@ -10,7 +10,7 @@ class Mine extends Component{
     constructor(props) {
         super(props);
         http.getUserInfo().then(r=>{
-            this.setState({info:r})
+            this.setState({info:r.data})
         })
     }
   state = {
