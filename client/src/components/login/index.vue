@@ -13,6 +13,9 @@
         left-arrow
         @click-left="onClickLeft"
       />
+      <div class="head">
+        <img :src="head" alt="" />
+      </div>
       <div class="dl" v-if="isDl">
         <van-form ref="dl" @submit="dlSubmit">
           <van-field
@@ -108,6 +111,7 @@
 <script>
 import http from "@/api/api";
 import { setToken } from "@/utils/token";
+import head from "@/assets/login.png";
 export default {
   name: "login",
   props: {
@@ -129,6 +133,7 @@ export default {
       },
       dlLoading: false,
       zcLoading: false,
+      head,
     };
   },
   methods: {
@@ -141,7 +146,7 @@ export default {
         if (r.errno === 0) {
           this.$toast.success("登录成功!");
           setToken(r.data.sessionKey);
-          this.$store.dispatch('getLogin');
+          this.$store.dispatch("getLogin");
         }
         this.dlLoading = false;
       });
@@ -193,6 +198,14 @@ export default {
 .login {
   .bg {
     background: #f7f8fa;
+  }
+  .head{
+    width: 100%;
+    margin-top: 10vh;
+    margin-bottom: 30vh;
+    img{
+      width: 100%;
+    }
   }
 }
 </style>
