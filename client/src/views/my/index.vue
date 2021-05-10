@@ -45,16 +45,19 @@
         <van-grid>
           <van-grid-item
             icon="bulb-o"
+            :badge="list1.length||''"
             @click="$router.push({ name: '我的订单', query: { typeId: 1 } })"
             text="待发货"
           />
           <van-grid-item
             icon="logistics"
+            :badge="list2.length||''"
             @click="$router.push({ name: '我的订单', query: { typeId: 2 } })"
             text="待收货"
           />
           <van-grid-item
             icon="edit"
+            :badge="list3.length||''"
             @click="$router.push({ name: '我的订单', query: { typeId: 3 } })"
             text="待评价"
           />
@@ -147,10 +150,20 @@ export default {
   name: "my",
   created() {
     this.$store.dispatch("getState");
+    this.userInfo&&this.getData();
   },
   computed: {
     userInfo() {
       return this.$store.state.userInfo;
+    },
+    list1() {
+      return this.list.filter((r) => r.typeid === 1);
+    },
+    list2() {
+      return this.list.filter((r) => r.typeid === 2);
+    },
+    list3() {
+      return this.list.filter((r) => r.typeid === 3);
     },
   },
   data() {
@@ -159,6 +172,7 @@ export default {
       form: {},
       showPicker: false,
       pic: [],
+      list:[]
     };
   },
   methods: {
@@ -201,6 +215,11 @@ export default {
         if (r.errno === 0) {
           this.form.avatar = r.data.fileUrl;
         }
+      });
+    },
+    getData() {
+      http.postOrderList().then((r) => {
+        this.list = r.data.list;
       });
     },
   },

@@ -7,7 +7,12 @@ module.exports = class extends Base {
 
     return this.success(data);
   }
+  async list1Action() {
+    const model = this.model('topic');
+    const data = await model.page(this.get('page') || 1, this.get('size') || 10).countSelect();
 
+    return this.success(data);
+  }
   async detailAction() {
     const model = this.model('topic');
     const data = await model.where({id: this.get('id')}).find();

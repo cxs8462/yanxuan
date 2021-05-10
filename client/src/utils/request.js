@@ -4,7 +4,7 @@ import { Toast } from "vant";
 import store from "@/store/index";
 
 const instance = axios.create({
-  baseURL: "/dev-api",
+  baseURL: process.env.VUE_APP_BASE_API,
   withCredentials: true, // 跨域类型时是否在请求中协带cookie
 });
 const getNewHeaders = () => {
