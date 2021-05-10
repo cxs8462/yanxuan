@@ -11,7 +11,7 @@ const name = defaultSettings.title
 const port = process.env.port || process.env.npm_config_port || 9528 // dev port
 
 module.exports = {
-  publicPath: '/',
+  publicPath: '/web/manage',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
